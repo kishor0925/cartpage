@@ -3,17 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { removefromCart } from '../slicePage/Cartslice';
 
 const CartPage = () => {
-
    const {cartItems} =  useSelector((state) => state.cart)
    const dispatch = useDispatch();
-
-
   return (
     <div className='container'>
         <div className='row'>
             <div className='col'>
                 {cartItems.length === 0 ? (<p>Your Cart is Empty</p>) : (
-                    
                     <table className='table'>
                         <thead>
                             <tr>
@@ -25,11 +21,8 @@ const CartPage = () => {
                                 <th>Action</th>
                             </tr>
                         </thead>
-
                         <tbody>
-                            {
-                                cartItems.map( (product, index) => {
-                                        return(
+                            {cartItems.map( (product, index) => (
                                             <tr key={index}>
                                                 <td>
                                                     <img
@@ -43,31 +36,24 @@ const CartPage = () => {
                                                     }}
                                                      />
                                                 </td>
-
                                                 <td>
                                                     {product.title}
                                                 </td>
-
                                                 <td>
                                                     {product.price}
                                                 </td>
-
                                                 <td>
                                                     {product.quantity}
                                                 </td>
                                                 <td>
                                                     ₹{product.price * product.quantity}
                                                 </td>
-
                                                 <td>
-                                                    {
-                                                        <button onClick={() => dispatch( removefromCart(product.id) )}>Remove</button>
+                                                    {<button onClick={() => dispatch( removefromCart(product.id) )}>Remove</button>
                                                     }
                                                 </td>
-                                                
-                                            </tr>
-                                        )
-                                })
+                                            </tr>                                        
+                            ))
                             }
                         </tbody>
                     </table>
@@ -78,5 +64,4 @@ const CartPage = () => {
     </div>
   )
 }
-
 export default CartPage
