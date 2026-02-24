@@ -53,7 +53,7 @@ const ProductPage = () => {
     <div className='container mt-4'>
       <div className='row'>
         {Products.map((product) => (
-          <div className='col-12 col-md-6 col-lg-3 mb-4' key={product.id}>
+          <div className='col-12 col-md-6 col-3 mb-4' key={product.id}>
             <div className='card h-100'>
               <img 
                 src={product.img} 
